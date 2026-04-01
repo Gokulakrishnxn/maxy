@@ -2,7 +2,7 @@
   "name": "maxyy",
   "version": "1.0.0",
   "description": "Maxy — personal AI assistant with voice, Telegram, Gmail, reminders, Ollama and Gemini",
-  "author": "gokulakrishnan",
+  "author": "Gokulakrishnan (https://gokulakrishnan.dev)",
   "license": "MIT",
   "bin": {
     "maxy": "./bin/maxy.js"
@@ -10,7 +10,8 @@
   "files": [
     "bin/",
     "*.py",
-    "requirements.txt"
+    "requirements.txt",
+    "LICENSE"
   ],
   "engines": {
     "node": ">=16.0.0"

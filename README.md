@@ -2,6 +2,8 @@
 
 Your personal AI that lives on your Mac. Runs as a voice assistant in the terminal or as a Telegram bot. Powered by Gemini + local Ollama models.
 
+Developed and designed by [Gokulakrishnan](https://gokulakrishnan.dev).
+
 ---
 
 ## Install
@@ -271,6 +273,6 @@ python main.py         # telegram bot
 
 ## License
 
-MIT
-# maxy
-# maxy
+This project is licensed under the [MIT License](LICENSE).
+
+Copyright (c) 2026 Gokulakrishnan. See [LICENSE](LICENSE) for the full text.
