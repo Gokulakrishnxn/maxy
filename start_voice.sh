@@ -7,4 +7,4 @@
 
 DIR="$(cd "$(dirname "$0")" && pwd)"
 source "$DIR/venv/bin/activate"
-python "$DIR/voice.py" "$@"
+python "$DIR/src/voice.py" "$@"

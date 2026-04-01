@@ -18,7 +18,8 @@ function getCliName() {
 const CLI = getCliName();
 
 // ── Paths ──────────────────────────────────────────────────────────────────
-const PKG_DIR   = path.join(__dirname, ".."); // npm package root (Python files live here)
+const PKG_DIR   = path.join(__dirname, ".."); // npm package root
+const PY_DIR    = path.join(PKG_DIR, "src");  // Python sources
 const MAXY_HOME = process.env.MAXY_HOME || path.join(os.homedir(), "maxy");
 const VENV_DIR  = path.join(MAXY_HOME, "venv");
 const PYTHON    = process.platform === "win32"
@@ -76,7 +77,7 @@ function ensureEnv() {
   }
 
   // Install deps (only if stamp missing or requirements newer)
-  const reqFile  = path.join(PKG_DIR, "requirements.txt");
+  const reqFile  = path.join(PKG_DIR, "requirements.txt"); // repo root
   const reqMtime = fs.existsSync(reqFile) ? fs.statSync(reqFile).mtimeMs : 0;
   const stampMs  = fs.existsSync(STAMP)   ? fs.statSync(STAMP).mtimeMs  : 0;
 
@@ -101,17 +102,17 @@ function ensureEnv() {
 // ── Run Python ─────────────────────────────────────────────────────────────
 function runPython(script, extraArgs = [], extraEnv = {}) {
   ensureEnv();
-  const scriptPath = path.join(PKG_DIR, script);
+  const scriptPath = path.join(PY_DIR, script);
   const env = {
     ...process.env,
     MAXY_HOME,
-    PYTHONPATH: PKG_DIR,
+    PYTHONPATH: PY_DIR,
     ...extraEnv,
   };
   const child = spawn(PYTHON, [scriptPath, ...extraArgs], {
     stdio: "inherit",
     env,
-    cwd: PKG_DIR,
+    cwd: PY_DIR,
   });
   child.on("exit", code => process.exit(code ?? 0));
 }

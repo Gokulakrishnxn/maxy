@@ -1,12 +1,37 @@
 # Maxy — Personal AI Assistant
 
+<!-- Banner: shipped in the npm package as assets/github-social-preview.png; also resolvable on npm via jsDelivr -->
 <p align="center">
-  <img src="assets/github-social-preview.png" width="640" alt="Maxy — Personal AI assistant" />
+  <img
+    src="https://cdn.jsdelivr.net/npm/maxyy@latest/assets/github-social-preview.png"
+    width="640"
+    height="320"
+    alt="Maxy — Personal AI assistant (Voice and Telegram)"
+  />
 </p>
+
+**[maxyy on npm](https://www.npmjs.com/package/maxyy)** — Install globally: `npm i -g maxyy`, then run **`maxyy setup`**, **`maxyy voice`**, or **`maxyy telegram`**. Python packages are installed into **`~/maxy/venv`** on first run (Node 16+ and Python 3.8+ required).
 
 Your personal AI that lives on your Mac. Runs as a voice assistant in the terminal or as a Telegram bot. Powered by Gemini + local Ollama models.
 
-Developed and designed by [Gokulakrishnan](https://gokulakrishnan.dev).
+Developed and designed by [Gokulakrishnan](https://gokulakrishnan.dev) · **Docs:** [GitHub Pages](https://gokulakrishnanxn.github.io/maxy/) · **Source:** [github.com/Gokulakrishnanxn/maxy](https://github.com/Gokulakrishnanxn/maxy)
+
+### What’s in this npm package
+
+The published tarball includes **`cli/`** (Node CLI), **`src/`** (Python app), **`requirements.txt`**, **`LICENSE`**, and **`assets/github-social-preview.png`** (README banner). Full documentation, extra assets, and CI configs live in the [GitHub repository](https://github.com/Gokulakrishnanxn/maxy).
+
+### Project layout (repository)
+
+| Path | Role |
+|------|------|
+| `src/` | Python application (voice, Telegram bot, brain, memory, Gmail, etc.) |
+| `cli/maxy.js` | Node.js CLI — provides `maxyy` / `maxy`, manages venv, runs `src/` scripts |
+| `docs/` | Static documentation site (GitHub Pages / Netlify) |
+| `assets/` | Brand images (README banner, logo) |
+| `requirements.txt` | Python dependencies (installed into `~/maxy/venv` on first `maxyy` run) |
+| `.github/workflows/` | CI (e.g. deploy `docs/`) |
+
+Runtime data (database, `.env`, Gmail tokens) stays under **`~/maxy/`**, not in the repo.
 
 ---
 
@@ -270,9 +295,10 @@ cd maxy
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
-cp .env.example .env   # fill in your keys
+# Create ~/maxy/.env with your keys (or run maxyy setup after npm link)
+cd src
 python voice.py        # voice mode
-python main.py         # telegram bot
+python main.py         # Telegram bot
 ```
 
 ---
