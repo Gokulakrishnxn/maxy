@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" role="img" aria-label="Maxy - Personal AI assistant">
+  <rect width="1280" height="640" fill="#0c0e12"/>
+  <rect x="0" y="0" width="1280" height="640" fill="url(#g)" opacity="0.35"/>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3dd6e8" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#0c0e12" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <!-- Squirrel (same mark as docs/favicon.svg), scaled -->
+  <g transform="translate(72, 140) scale(11)">
+    <rect width="32" height="32" rx="8" fill="#13161d"/>
+    <g fill="#3dd6e8">
+      <circle cx="11.5" cy="13" r="5"/>
+      <ellipse cx="14.5" cy="22" rx="6" ry="5"/>
+      <path d="M7.5 9.5L6 5.5L10 7z"/>
+      <path d="M15.5 9.5L17 5.5L13 7z"/>
+    </g>
+    <path
+      fill="none"
+      stroke="#3dd6e8"
+      stroke-width="3.2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      d="M17.5 17c5-3 9.5-8 10-12 .5-4-3-4.5-5.5-1.5-2 2.5-3 7-4.5 10"
+    />
+  </g>
+  <text x="520" y="300" fill="#e8eaef" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="80" font-weight="700" letter-spacing="-0.03em">Maxy</text>
+  <text x="520" y="370" fill="#8b95a8" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="28" font-weight="400">Personal AI assistant - Voice and Telegram</text>
+  <text x="520" y="430" fill="#3dd6e8" font-family="ui-monospace, Menlo, monospace" font-size="18" opacity="0.9">github.com/Gokulakrishnxn/maxy</text>
+</svg>

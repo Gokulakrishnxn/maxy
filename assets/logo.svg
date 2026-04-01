@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Maxy">
+  <rect width="32" height="32" rx="8" fill="#0c0e12"/>
+  <g fill="#3dd6e8">
+    <circle cx="11.5" cy="13" r="5"/>
+    <ellipse cx="14.5" cy="22" rx="6" ry="5"/>
+    <path d="M7.5 9.5L6 5.5L10 7z"/>
+    <path d="M15.5 9.5L17 5.5L13 7z"/>
+  </g>
+  <path
+    fill="none"
+    stroke="#3dd6e8"
+    stroke-width="3.2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    d="M17.5 17c5-3 9.5-8 10-12 .5-4-3-4.5-5.5-1.5-2 2.5-3 7-4.5 10"
+  />
+</svg>

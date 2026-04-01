@@ -1,5 +1,9 @@
 # Maxy — Personal AI Assistant
 
+<p align="center">
+  <img src="docs/favicon.svg" width="88" height="88" alt="Maxy" />
+</p>
+
 Your personal AI that lives on your Mac. Runs as a voice assistant in the terminal or as a Telegram bot. Powered by Gemini + local Ollama models.
 
 Developed and designed by [Gokulakrishnan](https://gokulakrishnan.dev).
