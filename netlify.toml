@@ -1,0 +1,11 @@
+# Static documentation site — https://docs.netlify.com/configure-builds/file-based-configuration/
+[build]
+  publish = "docs"
+  command = "echo 'Static docs; no build'"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
