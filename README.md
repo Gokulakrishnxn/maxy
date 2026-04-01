@@ -10,7 +10,7 @@
   />
 </p>
 
-**[maxyy on npm](https://www.npmjs.com/package/maxyy)** — Install globally: `npm i -g maxyy`, then run **`maxyy setup`**, **`maxyy voice`**, or **`maxyy telegram`**. Python packages are installed into **`~/maxy/venv`** on first run (Node 16+ and Python 3.8+ required).
+**[maxyy on npm](https://www.npmjs.com/package/maxyy)** — Install globally: `npm i -g maxyy`, then use the **`maxy`** command: **`maxy setup`**, **`maxy voice`**, or **`maxy telegram`**. (The **`maxyy`** command is the same binary—same name as the package.) Python packages are installed into **`~/maxy/venv`** on first run (Node 16+ and Python 3.8+ required).
 
 Your personal AI that lives on your Mac. Runs as a voice assistant in the terminal or as a Telegram bot. Powered by Gemini + local Ollama models.
 
@@ -25,10 +25,10 @@ The published tarball includes **`cli/`** (Node CLI), **`src/`** (Python app), *
 | Path | Role |
 |------|------|
 | `src/` | Python application (voice, Telegram bot, brain, memory, Gmail, etc.) |
-| `cli/maxy.js` | Node.js CLI — provides `maxyy` / `maxy`, manages venv, runs `src/` scripts |
+| `cli/maxy.js` | Node.js CLI — provides **`maxy`** (primary) and **`maxyy`** (alias), manages venv, runs `src/` scripts |
 | `docs/` | Static documentation site (GitHub Pages / Netlify) |
 | `assets/` | Brand images (README banner, logo) |
-| `requirements.txt` | Python dependencies (installed into `~/maxy/venv` on first `maxyy` run) |
+| `requirements.txt` | Python dependencies (installed into `~/maxy/venv` on first `maxy` run) |
 | `.github/workflows/` | CI (e.g. deploy `docs/`) |
 
 Runtime data (database, `.env`, Gmail tokens) stays under **`~/maxy/`**, not in the repo.
@@ -45,7 +45,7 @@ Runtime data (database, `.env`, Gmail tokens) stays under **`~/maxy/`**, not in 
 npm i -g maxyy
 ```
 
-After install, use the **`maxyy`** command (e.g. `maxyy setup`, `maxyy voice`). A **`maxy`** shim is also registered for backward compatibility.
+After install, use the **`maxy`** command (e.g. `maxy setup`, `maxy voice`). The **`maxyy`** command is the same program (matches the npm package name).
 
 **Option B — from GitHub:**
 

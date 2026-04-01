@@ -7,13 +7,13 @@ const fs     = require("fs");
 const os     = require("os");
 const readline = require("readline");
 
-/** Command name as invoked (e.g. maxyy or maxy); npm global install uses maxyy. */
+/** Command name as invoked (maxy or maxyy); primary CLI is maxy. */
 function getCliName() {
   const exe = process.argv[1] || "";
   let base = path.basename(exe);
   if (base.endsWith(".cmd")) base = base.slice(0, -4);
   if (base.endsWith(".exe")) base = base.slice(0, -4);
-  return base || "maxyy";
+  return base || "maxy";
 }
 const CLI = getCliName();
 
