@@ -17,11 +17,15 @@
         <span class="brand-name">Maxy</span>
         <span class="brand-tag">Docs</span>
       </a>
-      <div style="display:flex;align-items:center;gap:0.75rem;">
+      <div class="header-actions">
         <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Open navigation">Menu</button>
-        <nav class="header-links">
-          <a href="https://github.com/Gokulakrishnanxn/maxy" target="_blank" rel="noopener">GitHub</a>
-          <a href="https://gokulakrishnan.dev" target="_blank" rel="noopener">Author</a>
+        <nav class="header-links" aria-label="External links">
+          <a class="header-icon-link" href="https://github.com/Gokulakrishnanxn/maxy" target="_blank" rel="noopener noreferrer" aria-label="Repository on GitHub" title="GitHub">
+            <svg class="header-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          </a>
+          <a class="header-icon-link" href="https://gokulakrishnan.dev" target="_blank" rel="noopener noreferrer" aria-label="Author website" title="Author">
+            <svg class="header-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </a>
         </nav>
       </div>
     </header>
@@ -66,18 +70,23 @@
         <section id="install">
           <h2>Install</h2>
           <p>Requires <strong style="color:var(--text);">Node.js 16+</strong> and <strong style="color:var(--text);">Python 3.8+</strong>. macOS is the primary target; Linux is supported; Windows is untested.</p>
+          <p>
+            <strong style="color:var(--text);">npm:</strong>
+            <a href="https://www.npmjs.com/package/maxyy" target="_blank" rel="noopener">npmjs.com/package/maxyy</a>
+            — package name is <code>maxyy</code> (two <strong style="color:var(--text);">y</strong>s), not <code>maxxy</code>.
+          </p>
           <pre><code>npm install -g maxyy</code></pre>
-          <p>Until the package is published, clone the repo and use <code>npm link</code>, or run Python directly (see <a href="#manual-setup">Manual setup</a>).</p>
+          <p>Alternatives: install from GitHub — <code>npm install -g git+https://github.com/Gokulakrishnanxn/maxy.git</code> — or clone and <code>npm link</code>, or run Python only (see <a href="#manual-setup">Manual setup</a>).</p>
         </section>
 
         <section id="quick-start">
           <h2>Quick start</h2>
           <pre><code># 1. First-time setup (API keys, voice, model)
-maxy setup
+maxyy setup
 
 # 2. Pick your interface
-maxy voice          # voice assistant in terminal
-maxy telegram       # Telegram bot</code></pre>
+maxyy voice          # voice assistant in terminal
+maxyy telegram       # Telegram bot</code></pre>
         </section>
 
         <section id="cli">
@@ -91,13 +100,13 @@ maxy telegram       # Telegram bot</code></pre>
                 </tr>
               </thead>
               <tbody>
-                <tr><td><code>maxy setup</code></td><td>First-time config wizard</td></tr>
-                <tr><td><code>maxy voice</code></td><td>Push-to-talk: Enter → speak → pause to stop</td></tr>
-                <tr><td><code>maxy voice --wake</code></td><td>Always-on: say &quot;Hey Maxy&quot; to activate</td></tr>
-                <tr><td><code>maxy voice --text</code></td><td>Keyboard only, no microphone</td></tr>
-                <tr><td><code>maxy telegram</code></td><td>Start the Telegram bot</td></tr>
-                <tr><td><code>maxy --version</code></td><td>Print version</td></tr>
-                <tr><td><code>maxy --help</code></td><td>Show help</td></tr>
+                <tr><td><code>maxyy setup</code></td><td>First-time config wizard</td></tr>
+                <tr><td><code>maxyy voice</code></td><td>Push-to-talk: Enter → speak → pause to stop</td></tr>
+                <tr><td><code>maxyy voice --wake</code></td><td>Always-on: say &quot;Hey Maxy&quot; to activate</td></tr>
+                <tr><td><code>maxyy voice --text</code></td><td>Keyboard only, no microphone</td></tr>
+                <tr><td><code>maxyy telegram</code></td><td>Start the Telegram bot</td></tr>
+                <tr><td><code>maxyy --version</code></td><td>Print version</td></tr>
+                <tr><td><code>maxyy --help</code></td><td>Show help</td></tr>
               </tbody>
             </table>
           </div>
@@ -105,7 +114,7 @@ maxy telegram       # Telegram bot</code></pre>
 
         <section id="voice">
           <h2>Voice assistant</h2>
-          <pre><code>maxy voice</code></pre>
+          <pre><code>maxyy voice</code></pre>
           <div class="table-wrap">
             <table>
               <thead>
@@ -123,14 +132,14 @@ maxy telegram       # Telegram bot</code></pre>
           </div>
           <p>Say <strong style="color:var(--text);">bye</strong> or <strong style="color:var(--text);">exit</strong> to quit.</p>
           <h3>Options</h3>
-          <pre><code>maxy voice --voice Daniel       # macOS say voice
-maxy voice --model small       # Whisper: tiny | base | small | medium</code></pre>
+          <pre><code>maxyy voice --voice Daniel       # macOS say voice
+maxyy voice --model small       # Whisper: tiny | base | small | medium</code></pre>
           <p>List macOS voices: <code>say -v '?'</code></p>
         </section>
 
         <section id="telegram">
           <h2>Telegram bot</h2>
-          <pre><code>maxy telegram</code></pre>
+          <pre><code>maxyy telegram</code></pre>
           <h3>Commands</h3>
           <div class="table-wrap">
             <table>
@@ -220,7 +229,7 @@ maxy voice --model small       # Whisper: tiny | base | small | medium</code></p
 
         <section id="configuration">
           <h2>Configuration</h2>
-          <p>Config file: <code>~/maxy/.env</code> (create with <code>maxy setup</code> or edit by hand).</p>
+          <p>Config file: <code>~/maxy/.env</code> (create with <code>maxyy setup</code> or edit by hand).</p>
           <pre><code>GEMINI_API_KEY=your_key_here
 TELEGRAM_BOT_TOKEN=your_token_here
 MAXY_VOICE=Samantha
@@ -228,7 +237,7 @@ MAXY_BACKEND=gemini
 MAXY_OLLAMA_MODEL=llama3.1:8b
 VOICE_USER_ID=voice_local</code></pre>
           <p>Override data directory:</p>
-          <pre><code>MAXY_HOME=/custom/path maxy voice</code></pre>
+          <pre><code>MAXY_HOME=/custom/path maxyy voice</code></pre>
         </section>
 
         <section id="privacy">

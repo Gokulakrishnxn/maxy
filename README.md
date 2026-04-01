@@ -12,6 +12,7 @@ Developed and designed by [Gokulakrishnan](https://gokulakrishnan.dev).
 
 | Where | URL / how |
 |-------|-----------|
+| **npm** | [`maxyy` on npm](https://www.npmjs.com/package/maxyy) — install with `npm install -g maxyy` (package name is two **y**s, not `maxxy`). |
 | **GitHub Pages** | [gokulakrishnanxn.github.io/maxy](https://gokulakrishnanxn.github.io/maxy/) — deploys from `docs/` on push to `main` (workflow in `.github/workflows/pages.yml`). In the repo: **Settings → Pages → Source: GitHub Actions**. |
 | **Netlify** | Connect [the repo](https://github.com/Gokulakrishnanxn/maxy) in Netlify (**Add new site → Import from Git**). `netlify.toml` sets `publish = "docs"` and a no-op build. Each push to `main` redeploys. |
 | **Local** | Open [`docs/index.html`](docs/index.html) or run `npx serve docs`. |
@@ -22,11 +23,52 @@ Developed and designed by [Gokulakrishnan](https://gokulakrishnan.dev).
 
 ## Install
 
+**npm package:** [npmjs.com/package/maxyy](https://www.npmjs.com/package/maxyy) — the name is **`maxyy`** (two **y**s), not `maxxy`.
+
+**Option A — from npm (recommended):**
+
 ```bash
 npm install -g maxyy
 ```
 
-**Requirements:** Node.js 16+, Python 3.8+, macOS (Linux supported, Windows untested)
+After install, use the **`maxyy`** command (e.g. `maxyy setup`, `maxyy voice`). A **`maxy`** shim is also registered for backward compatibility.
+
+**Option B — from GitHub:**
+
+```bash
+npm install -g git+https://github.com/Gokulakrishnanxn/maxy.git
+```
+
+**Option C — clone and link:**
+
+```bash
+git clone https://github.com/Gokulakrishnanxn/maxy.git
+cd maxy
+npm link
+```
+
+**Requirements:** Node.js 16+, Python 3.8+, macOS (Linux supported, Windows untested). For Option B, the repo must be **public**, or use a URL with a [personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) for private repos.
+
+### Publishing to npm (maintainers)
+
+1. **Account** — Sign up at [npmjs.com](https://www.npmjs.com/signup). Enable 2FA on your npm account (recommended).
+2. **Name** — This package is [`maxyy`](https://www.npmjs.com/package/maxyy). If that name is taken, change `"name"` in `package.json` (e.g. `@your-username/maxy-cli`) and use `npm publish --access public` for scoped names.
+3. **Login** — In the repo root:
+   ```bash
+   npm login
+   ```
+   Use your npm username, password, email, and an OTP if 2FA is on.
+4. **Dry run** — See what would be published:
+   ```bash
+   npm pack --dry-run
+   ```
+5. **Publish** — From the project root (same folder as `package.json`):
+   ```bash
+   npm publish
+   ```
+6. **Updates** — Bump `"version"` in `package.json` (or run `npm version patch`), then `npm publish` again.
+
+After publish, others can run `npm install -g maxyy`. The `LICENSE` and files listed under `"files"` in `package.json` are included; `README.md` is published automatically.
 
 ---
 
@@ -34,11 +76,11 @@ npm install -g maxyy
 
 ```bash
 # 1. First-time setup (API keys, voice, model)
-maxy setup
+maxyy setup
 
 # 2. Pick your interface
-maxy voice          # voice assistant in terminal
-maxy telegram       # Telegram bot
+maxyy voice          # voice assistant in terminal
+maxyy telegram       # Telegram bot
 ```
 
 ---
@@ -46,13 +88,13 @@ maxy telegram       # Telegram bot
 ## Commands
 
 ```
-maxy setup              First-time config wizard
-maxy voice              Voice assistant — push-to-talk (press Enter to speak)
-maxy voice --wake       Always-on mode — say "Hey Maxy" to activate
-maxy voice --text       Keyboard-only mode (no microphone)
-maxy telegram           Start the Telegram bot
-maxy --version          Print version
-maxy --help             Show help
+maxyy setup              First-time config wizard
+maxyy voice              Voice assistant — push-to-talk (press Enter to speak)
+maxyy voice --wake       Always-on mode — say "Hey Maxy" to activate
+maxyy voice --text       Keyboard-only mode (no microphone)
+maxyy telegram           Start the Telegram bot
+maxyy --version          Print version
+maxyy --help             Show help
 ```
 
 ---
@@ -60,7 +102,7 @@ maxy --help             Show help
 ## Voice Assistant
 
 ```bash
-maxy voice
+maxyy voice
 ```
 
 | Mode | How to use |
@@ -74,8 +116,8 @@ maxy voice
 ### Voice options
 
 ```bash
-maxy voice --voice Daniel       # change voice (any macOS say voice)
-maxy voice --model small        # Whisper model: tiny / base / small / medium
+maxyy voice --voice Daniel       # change voice (any macOS say voice)
+maxyy voice --model small        # Whisper model: tiny / base / small / medium
 ```
 
 List available voices:
@@ -88,7 +130,7 @@ say -v '?'
 ## Telegram Bot
 
 ```bash
-maxy telegram
+maxyy telegram
 ```
 
 ### Bot commands
@@ -221,7 +263,7 @@ Maxy also auto-saves facts when you say things like:
 
 ## Configuration
 
-All config lives in `~/maxy/.env`. Edit it directly or re-run `maxy setup`.
+All config lives in `~/maxy/.env`. Edit it directly or re-run `maxyy setup`.
 
 ```env
 GEMINI_API_KEY=your_key_here
@@ -234,7 +276,7 @@ VOICE_USER_ID=voice_local
 
 Override the data directory:
 ```bash
-MAXY_HOME=/custom/path maxy voice
+MAXY_HOME=/custom/path maxyy voice
 ```
 
 ---

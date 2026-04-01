@@ -7,6 +7,16 @@ const fs     = require("fs");
 const os     = require("os");
 const readline = require("readline");
 
+/** Command name as invoked (e.g. maxyy or maxy); npm global install uses maxyy. */
+function getCliName() {
+  const exe = process.argv[1] || "";
+  let base = path.basename(exe);
+  if (base.endsWith(".cmd")) base = base.slice(0, -4);
+  if (base.endsWith(".exe")) base = base.slice(0, -4);
+  return base || "maxyy";
+}
+const CLI = getCliName();
+
 // ── Paths ──────────────────────────────────────────────────────────────────
 const PKG_DIR   = path.join(__dirname, ".."); // npm package root (Python files live here)
 const MAXY_HOME = process.env.MAXY_HOME || path.join(os.homedir(), "maxy");
@@ -150,8 +160,8 @@ This wizard creates ${C.bold(ENV_FILE)}
 
     console.log(`\n${C.green("✓")} Config saved to ${C.bold(ENV_FILE)}`);
     console.log(`\nNext steps:`);
-    console.log(`  ${C.cyan("maxy voice")}      — start voice assistant`);
-    console.log(`  ${C.cyan("maxy telegram")}   — start Telegram bot`);
+    console.log(`  ${C.cyan(`${CLI} voice`)}      — start voice assistant`);
+    console.log(`  ${C.cyan(`${CLI} telegram`)}   — start Telegram bot`);
     console.log();
   })();
 }
@@ -162,7 +172,7 @@ function help() {
 ${C.cyan(C.bold("Maxy — personal AI assistant"))}
 
 ${C.bold("USAGE")}
-  maxy [command] [options]
+  ${CLI} [command] [options]
 
 ${C.bold("COMMANDS")}
   ${C.cyan("setup")}                  First-time config wizard (API keys, voice, model)
@@ -174,14 +184,14 @@ ${C.bold("COMMANDS")}
   ${C.cyan("--help")}                 Show this help
 
 ${C.bold("EXAMPLES")}
-  maxy setup
-  maxy voice
-  maxy voice --wake
-  maxy telegram
+  ${CLI} setup
+  ${CLI} voice
+  ${CLI} voice --wake
+  ${CLI} telegram
 
 ${C.bold("DATA")}
   Config & DB stored in:  ${C.dim(MAXY_HOME)}
-  Override:               ${C.dim("MAXY_HOME=/custom/path maxy voice")}
+  Override:               ${C.dim(`MAXY_HOME=/custom/path ${CLI} voice`)}
 `);
 }
 
@@ -209,7 +219,7 @@ switch (command) {
   case "--version":
   case "-v": {
     const pkg = JSON.parse(fs.readFileSync(path.join(PKG_DIR, "package.json"), "utf8"));
-    console.log(`maxy v${pkg.version}`);
+    console.log(`${CLI} v${pkg.version}`);
     break;
   }
 
