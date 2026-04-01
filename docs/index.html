@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Maxy — Documentation</title>
+  <meta name="description" content="Maxy personal AI assistant: voice, Telegram, Gemini, Ollama. Installation, CLI, and feature reference." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="doc-shell">
+    <header class="doc-header">
+      <a class="brand" href="#top">
+        <span class="brand-name">Maxy</span>
+        <span class="brand-tag">Docs</span>
+      </a>
+      <div style="display:flex;align-items:center;gap:0.75rem;">
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Open navigation">Menu</button>
+        <nav class="header-links">
+          <a href="https://github.com/Gokulakrishnxn/maxy" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://gokulakrishnan.dev" target="_blank" rel="noopener">Author</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="doc-body">
+      <nav class="doc-nav" id="doc-nav" aria-label="Documentation sections">
+        <h2>On this page</h2>
+        <ul>
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#install">Install</a></li>
+          <li><a href="#quick-start">Quick start</a></li>
+          <li><a href="#cli">CLI reference</a></li>
+          <li><a href="#voice">Voice</a></li>
+          <li><a href="#telegram">Telegram</a></li>
+          <li><a href="#models">AI models</a></li>
+          <li><a href="#languages">Languages</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#configuration">Configuration</a></li>
+          <li><a href="#privacy">Data &amp; privacy</a></li>
+          <li><a href="#manual-setup">Manual setup</a></li>
+          <li><a href="#stack">Tech stack</a></li>
+          <li><a href="#license">License</a></li>
+        </ul>
+      </nav>
+
+      <main class="doc-main" id="top">
+        <h1>Maxy documentation</h1>
+        <p class="lead">
+          Your personal AI on your Mac: voice in the terminal or a Telegram bot. Powered by <strong style="color:var(--text);">Gemini</strong> and local <strong style="color:var(--text);">Ollama</strong>.
+        </p>
+        <p class="credit">
+          Developed and designed by <a href="https://gokulakrishnan.dev" target="_blank" rel="noopener">Gokulakrishnan</a>
+        </p>
+
+        <section id="overview">
+          <h2>Overview</h2>
+          <p>
+            Maxy runs two interfaces from one codebase: a <strong style="color:var(--text);">push-to-talk or wake-word voice assistant</strong> (Whisper + macOS <code>say</code>), and a <strong style="color:var(--text);">Telegram bot</strong> with Gmail, weather, search, reminders, todos, and notes. Conversation and memory live in SQLite under your home directory.
+          </p>
+        </section>
+
+        <section id="install">
+          <h2>Install</h2>
+          <p>Requires <strong style="color:var(--text);">Node.js 16+</strong> and <strong style="color:var(--text);">Python 3.8+</strong>. macOS is the primary target; Linux is supported; Windows is untested.</p>
+          <pre><code>npm install -g maxyy</code></pre>
+          <p>Until the package is published, clone the repo and use <code>npm link</code>, or run Python directly (see <a href="#manual-setup">Manual setup</a>).</p>
+        </section>
+
+        <section id="quick-start">
+          <h2>Quick start</h2>
+          <pre><code># 1. First-time setup (API keys, voice, model)
+maxy setup
+
+# 2. Pick your interface
+maxy voice          # voice assistant in terminal
+maxy telegram       # Telegram bot</code></pre>
+        </section>
+
+        <section id="cli">
+          <h2>CLI reference</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Command</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td><code>maxy setup</code></td><td>First-time config wizard</td></tr>
+                <tr><td><code>maxy voice</code></td><td>Push-to-talk: Enter → speak → pause to stop</td></tr>
+                <tr><td><code>maxy voice --wake</code></td><td>Always-on: say &quot;Hey Maxy&quot; to activate</td></tr>
+                <tr><td><code>maxy voice --text</code></td><td>Keyboard only, no microphone</td></tr>
+                <tr><td><code>maxy telegram</code></td><td>Start the Telegram bot</td></tr>
+                <tr><td><code>maxy --version</code></td><td>Print version</td></tr>
+                <tr><td><code>maxy --help</code></td><td>Show help</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="voice">
+          <h2>Voice assistant</h2>
+          <pre><code>maxy voice</code></pre>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Mode</th>
+                  <th>Usage</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>Push-to-talk</strong> (default)</td><td>Press Enter → speak → pause to stop</td></tr>
+                <tr><td><strong>Always-on</strong> <code>--wake</code></td><td>Say &quot;Hey Maxy&quot;, then your command</td></tr>
+                <tr><td><strong>Text only</strong> <code>--text</code></td><td>Type commands, no mic</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Say <strong style="color:var(--text);">bye</strong> or <strong style="color:var(--text);">exit</strong> to quit.</p>
+          <h3>Options</h3>
+          <pre><code>maxy voice --voice Daniel       # macOS say voice
+maxy voice --model small       # Whisper: tiny | base | small | medium</code></pre>
+          <p>List macOS voices: <code>say -v '?'</code></p>
+        </section>
+
+        <section id="telegram">
+          <h2>Telegram bot</h2>
+          <pre><code>maxy telegram</code></pre>
+          <h3>Commands</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Command</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td><code>/start</code></td><td>Show all commands</td></tr>
+                <tr><td><code>/brief</code></td><td>Morning summary: date, weather, email, reminders, tasks</td></tr>
+                <tr><td><code>/inbox</code></td><td>Unread Gmail</td></tr>
+                <tr><td><code>/weather [city]</code></td><td>Weather (default: Chennai)</td></tr>
+                <tr><td><code>/search &lt;query&gt;</code></td><td>Web search (DuckDuckGo)</td></tr>
+                <tr><td><code>/remind 30m take a break</code></td><td>Set a reminder</td></tr>
+                <tr><td><code>/reminders</code></td><td>List upcoming reminders</td></tr>
+                <tr><td><code>/todo add|list|done|delete</code></td><td>Tasks</td></tr>
+                <tr><td><code>/note &lt;text&gt;</code></td><td>Save a note</td></tr>
+                <tr><td><code>/model</code></td><td>Show or switch AI model</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>You can also chat naturally — Maxy uses conversation history for context.</p>
+        </section>
+
+        <section id="models">
+          <h2>AI models</h2>
+          <h3>Gemini (default)</h3>
+          <p>Cloud, fast, multilingual. Model: <code>gemini-2.5-flash</code>. Set <code>GEMINI_API_KEY</code> in <code>~/maxy/.env</code>.</p>
+          <h3>Ollama (local)</h3>
+          <p>Private, no API key. Install <a href="https://ollama.com" target="_blank" rel="noopener">Ollama</a> and run <code>ollama serve</code>. Use any pulled model.</p>
+          <h3>Switch in Telegram</h3>
+          <pre><code>/model                  # current model
+/model gemini           # Gemini
+/model llama3.1:8b      # Ollama model
+/model list             # local Ollama models</code></pre>
+          <div class="callout">
+            <strong>Auto-fallback:</strong> If Gemini quota is exceeded, Maxy switches to your best Ollama model and notifies you. If Ollama is down, it can fall back to Gemini when available.
+          </div>
+        </section>
+
+        <section id="languages">
+          <h2>Language support</h2>
+          <p>Maxy detects the language you type or speak and replies in the same language.</p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Language</th>
+                  <th>TTS voice</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>English</td><td>Samantha (en_US)</td></tr>
+                <tr><td>Thanglish (Tamil in Latin script)</td><td>Samantha</td></tr>
+                <tr><td>Tamil (Unicode)</td><td>Vani (ta_IN)</td></tr>
+                <tr><td>Hindi (Devanagari)</td><td>Lekha (hi_IN)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="features">
+          <h2>Features</h2>
+          <h3>Gmail</h3>
+          <p>Unread mail via <code>/inbox</code> or natural language. Sending requires your confirmation. One-time setup: Google Cloud project, Gmail API, <code>credentials.json</code> in <code>~/maxy/</code>, then browser OAuth.</p>
+          <h3>Weather</h3>
+          <p>Powered by <a href="https://wttr.in" target="_blank" rel="noopener">wttr.in</a> — no API key.</p>
+          <h3>Web search</h3>
+          <p>DuckDuckGo via <code>/search</code> or natural requests.</p>
+          <h3>Reminders</h3>
+          <pre><code>/remind 30m take a break
+/remind 2h call mom
+/remind 1d submit invoice
+/reminders</code></pre>
+          <p>Units: <code>s</code> seconds, <code>m</code> minutes, <code>h</code> hours, <code>d</code> days.</p>
+          <h3>Todo</h3>
+          <pre><code>/todo add finish the report
+/todo list
+/todo done 3
+/todo delete 3</code></pre>
+          <h3>Notes &amp; memory</h3>
+          <pre><code>/note Priya's birthday is March 12</code></pre>
+          <p>Facts like &quot;my name is…&quot;, &quot;I work at…&quot;, &quot;remember that…&quot; can be stored automatically.</p>
+        </section>
+
+        <section id="configuration">
+          <h2>Configuration</h2>
+          <p>Config file: <code>~/maxy/.env</code> (create with <code>maxy setup</code> or edit by hand).</p>
+          <pre><code>GEMINI_API_KEY=your_key_here
+TELEGRAM_BOT_TOKEN=your_token_here
+MAXY_VOICE=Samantha
+MAXY_BACKEND=gemini
+MAXY_OLLAMA_MODEL=llama3.1:8b
+VOICE_USER_ID=voice_local</code></pre>
+          <p>Override data directory:</p>
+          <pre><code>MAXY_HOME=/custom/path maxy voice</code></pre>
+        </section>
+
+        <section id="privacy">
+          <h2>Data &amp; privacy</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Data</th>
+                  <th>Location</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Chats, notes, tasks</td><td><code>~/maxy/maxy.db</code></td></tr>
+                <tr><td>Gmail OAuth</td><td><code>~/maxy/credentials.json</code>, tokens beside it</td></tr>
+                <tr><td>API keys</td><td><code>~/maxy/.env</code></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>With the <strong style="color:var(--text);">Ollama</strong> backend, inference stays local. <strong style="color:var(--text);">Gemini</strong> sends prompts to Google’s API — use Ollama when you want minimal cloud use.</p>
+        </section>
+
+        <section id="manual-setup">
+          <h2>Manual setup (without npm)</h2>
+          <pre><code>git clone https://github.com/Gokulakrishnxn/maxy.git
+cd maxy
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt</code></pre>
+          <p>Create <code>~/maxy/.env</code> (or copy from project examples) with your keys, place Gmail <code>credentials.json</code> if needed, then:</p>
+          <pre><code>python voice.py    # voice
+python main.py     # Telegram</code></pre>
+        </section>
+
+        <section id="stack">
+          <h2>Tech stack</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Layer</th>
+                  <th>Technology</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>AI (cloud)</td><td>Google Gemini 2.5 Flash</td></tr>
+                <tr><td>AI (local)</td><td>Ollama</td></tr>
+                <tr><td>Speech-to-text</td><td>OpenAI Whisper (local)</td></tr>
+                <tr><td>Text-to-speech</td><td>macOS <code>say</code></td></tr>
+                <tr><td>Telegram</td><td>python-telegram-bot</td></tr>
+                <tr><td>Email</td><td>Gmail API</td></tr>
+                <tr><td>Search</td><td>DuckDuckGo</td></tr>
+                <tr><td>Weather</td><td>wttr.in</td></tr>
+                <tr><td>Scheduler</td><td>APScheduler</td></tr>
+                <tr><td>Storage</td><td>SQLite</td></tr>
+                <tr><td>CLI</td><td>Node.js wrapper</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="license">
+          <h2>License</h2>
+          <p>
+            MIT License — Copyright (c) 2026 Gokulakrishnan. See the <a href="https://github.com/Gokulakrishnxn/maxy/blob/main/LICENSE">LICENSE</a> file in the repository.
+          </p>
+        </section>
+      </main>
+    </div>
+
+    <footer class="doc-footer">
+      <p>
+        <a href="https://gokulakrishnan.dev">gokulakrishnan.dev</a>
+        ·
+        <a href="https://github.com/Gokulakrishnxn/maxy">Source on GitHub</a>
+      </p>
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      var toggle = document.getElementById("nav-toggle");
+      var nav = document.getElementById("doc-nav");
+      if (toggle && nav) {
+        toggle.addEventListener("click", function () {
+          nav.classList.toggle("is-open");
+          toggle.setAttribute("aria-expanded", nav.classList.contains("is-open"));
+        });
+        nav.querySelectorAll("a").forEach(function (a) {
+          a.addEventListener("click", function () {
+            nav.classList.remove("is-open");
+            toggle.setAttribute("aria-expanded", "false");
+          });
+        });
+      }
+      var links = document.querySelectorAll(".doc-nav a[href^='#']");
+      var sections = document.querySelectorAll("section[id]");
+      function onScroll() {
+        var y = window.scrollY + 100;
+        var current = "";
+        sections.forEach(function (s) {
+          if (s.offsetTop <= y) current = s.getAttribute("id");
+        });
+        links.forEach(function (l) {
+          l.classList.toggle("active", l.getAttribute("href") === "#" + current);
+        });
+      }
+      window.addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
+    })();
+  </script>
+</body>
+</html>

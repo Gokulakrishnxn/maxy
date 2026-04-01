@@ -4,6 +4,10 @@ Your personal AI that lives on your Mac. Runs as a voice assistant in the termin
 
 Developed and designed by [Gokulakrishnan](https://gokulakrishnan.dev).
 
+**Documentation (live):** [gokulakrishnxn.github.io/maxy](https://gokulakrishnxn.github.io/maxy/) — deployed from `docs/` via GitHub Actions on every push to `main`. Locally: open [`docs/index.html`](docs/index.html) or run `npx serve docs`.
+
+_First-time setup:_ in the repo on GitHub go to **Settings → Pages → Build and deployment → Source** and choose **GitHub Actions** (not “Deploy from a branch”). Push this workflow; the site appears after the workflow succeeds.
+
 ---
 
 ## Install
