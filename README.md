@@ -1,7 +1,7 @@
 # Maxy — Personal AI Assistant
 
 <p align="center">
-  <img src="docs/favicon.svg" width="88" height="88" alt="Maxy" />
+  <img src="assets/github-social-preview.png" width="640" alt="Maxy — Personal AI assistant" />
 </p>
 
 Your personal AI that lives on your Mac. Runs as a voice assistant in the terminal or as a Telegram bot. Powered by Gemini + local Ollama models.
@@ -12,9 +12,11 @@ Developed and designed by [Gokulakrishnan](https://gokulakrishnan.dev).
 
 | Where | URL / how |
 |-------|-----------|
-| **GitHub Pages** | [gokulakrishnxn.github.io/maxy](https://gokulakrishnxn.github.io/maxy/) — deploys from `docs/` on push to `main` (workflow in `.github/workflows/pages.yml`). In the repo: **Settings → Pages → Source: GitHub Actions**. |
-| **Netlify** | Connect [the repo](https://github.com/Gokulakrishnxn/maxy) in Netlify (**Add new site → Import from Git**). `netlify.toml` sets `publish = "docs"` and a no-op build. Each push to `main` redeploys. |
+| **GitHub Pages** | [gokulakrishnanxn.github.io/maxy](https://gokulakrishnanxn.github.io/maxy/) — deploys from `docs/` on push to `main` (workflow in `.github/workflows/pages.yml`). In the repo: **Settings → Pages → Source: GitHub Actions**. |
+| **Netlify** | Connect [the repo](https://github.com/Gokulakrishnanxn/maxy) in Netlify (**Add new site → Import from Git**). `netlify.toml` sets `publish = "docs"` and a no-op build. Each push to `main` redeploys. |
 | **Local** | Open [`docs/index.html`](docs/index.html) or run `npx serve docs`. |
+
+**GitHub link preview:** The image above is [`assets/github-social-preview.png`](assets/github-social-preview.png) (1280×640). Set **Settings → General → Social preview → Edit** and upload that file so link cards match. Favicon-sized icon: [`assets/logo.svg`](assets/logo.svg) · [`docs/favicon.svg`](docs/favicon.svg). Editable source: [`assets/github-social-preview.svg`](assets/github-social-preview.svg).
 
 ---
 
@@ -253,7 +255,7 @@ Nothing leaves your machine except API calls to Gemini (if using Gemini backend)
 ## Manual Setup (without npm)
 
 ```bash
-git clone https://github.com/Gokulakrishnxn/maxy.git
+git clone https://github.com/Gokulakrishnanxn/maxy.git
 cd maxy
 python3 -m venv venv
 source venv/bin/activate
