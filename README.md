@@ -12,7 +12,7 @@ Developed and designed by [Gokulakrishnan](https://gokulakrishnan.dev).
 
 | Where | URL / how |
 |-------|-----------|
-| **npm** | [`maxyy` on npm](https://www.npmjs.com/package/maxyy) — install with `npm install -g maxyy` (package name is two **y**s, not `maxxy`). |
+| **npm** | [`maxyy` on npm](https://www.npmjs.com/package/maxyy) — `npm i -g maxyy` (package name is two **y**s, not `maxxy`). |
 | **GitHub Pages** | [gokulakrishnanxn.github.io/maxy](https://gokulakrishnanxn.github.io/maxy/) — deploys from `docs/` on push to `main` (workflow in `.github/workflows/pages.yml`). In the repo: **Settings → Pages → Source: GitHub Actions**. |
 | **Netlify** | Connect [the repo](https://github.com/Gokulakrishnanxn/maxy) in Netlify (**Add new site → Import from Git**). `netlify.toml` sets `publish = "docs"` and a no-op build. Each push to `main` redeploys. |
 | **Local** | Open [`docs/index.html`](docs/index.html) or run `npx serve docs`. |
@@ -28,7 +28,7 @@ Developed and designed by [Gokulakrishnan](https://gokulakrishnan.dev).
 **Option A — from npm (recommended):**
 
 ```bash
-npm install -g maxyy
+npm i -g maxyy
 ```
 
 After install, use the **`maxyy`** command (e.g. `maxyy setup`, `maxyy voice`). A **`maxy`** shim is also registered for backward compatibility.
@@ -36,7 +36,7 @@ After install, use the **`maxyy`** command (e.g. `maxyy setup`, `maxyy voice`). 
 **Option B — from GitHub:**
 
 ```bash
-npm install -g git+https://github.com/Gokulakrishnanxn/maxy.git
+npm i -g git+https://github.com/Gokulakrishnanxn/maxy.git
 ```
 
 **Option C — clone and link:**
@@ -68,7 +68,7 @@ npm link
    ```
 6. **Updates** — Bump `"version"` in `package.json` (or run `npm version patch`), then `npm publish` again.
 
-After publish, others can run `npm install -g maxyy`. The `LICENSE` and files listed under `"files"` in `package.json` are included; `README.md` is published automatically.
+After publish, others can run `npm i -g maxyy`. The `LICENSE` and files listed under `"files"` in `package.json` are included; `README.md` is published automatically.
 
 ---
 
