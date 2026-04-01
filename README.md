@@ -173,8 +173,8 @@ Maxy auto-detects the language you write or speak in and replies in the same lan
 | Hindi | Devanagari script | Lekha (hi_IN) |
 
 **Thanglish example:**
-> You: *bro enna panra ipo?*
-> Maxy: *work paakaren da, kekkathe* 😄
+> You: *hey maxyy epdi iruka?*
+> Maxy: *na nalla irukan gokulakrishnan.* 😄
 
 ---
 
