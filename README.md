@@ -239,7 +239,7 @@ Nothing leaves your machine except API calls to Gemini (if using Gemini backend)
 ## Manual Setup (without npm)
 
 ```bash
-git clone https://github.com/gokulakrishnan/maxy
+git clone https://github.com/Gokulakrishnxn/maxy.git
 cd maxy
 python3 -m venv venv
 source venv/bin/activate

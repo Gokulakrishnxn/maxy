@@ -1,0 +1,17 @@
+# Python
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+
+# Secrets and local state
+.env
+.env.*
+!.env.example
+credentials.json
+gmail_token.json
+maxy.db
+
+# OS
+.DS_Store

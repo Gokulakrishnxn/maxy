@@ -1,0 +1,10 @@
+venv/
+__pycache__/
+*.pyc
+*.pyo
+.env
+maxy.db
+credentials.json
+gmail_token.json
+.DS_Store
+start_voice.sh

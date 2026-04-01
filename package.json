@@ -1,0 +1,32 @@
+{
+  "name": "maxyy",
+  "version": "1.0.0",
+  "description": "Maxy — personal AI assistant with voice, Telegram, Gmail, reminders, Ollama and Gemini",
+  "author": "gokulakrishnan",
+  "license": "MIT",
+  "bin": {
+    "maxy": "./bin/maxy.js"
+  },
+  "files": [
+    "bin/",
+    "*.py",
+    "requirements.txt"
+  ],
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "keywords": [
+    "ai",
+    "assistant",
+    "voice",
+    "telegram",
+    "ollama",
+    "gemini",
+    "cli",
+    "maxy"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Gokulakrishnxn/maxy.git"
+  }
+}
