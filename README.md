@@ -49,27 +49,6 @@ npm link
 
 **Requirements:** Node.js 16+, Python 3.8+, macOS (Linux supported, Windows untested). For Option B, the repo must be **public**, or use a URL with a [personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) for private repos.
 
-### Publishing to npm (maintainers)
-
-1. **Account** — Sign up at [npmjs.com](https://www.npmjs.com/signup). Enable 2FA on your npm account (recommended).
-2. **Name** — This package is [`maxyy`](https://www.npmjs.com/package/maxyy). If that name is taken, change `"name"` in `package.json` (e.g. `@your-username/maxy-cli`) and use `npm publish --access public` for scoped names.
-3. **Login** — In the repo root:
-   ```bash
-   npm login
-   ```
-   Use your npm username, password, email, and an OTP if 2FA is on.
-4. **Dry run** — See what would be published:
-   ```bash
-   npm pack --dry-run
-   ```
-5. **Publish** — From the project root (same folder as `package.json`):
-   ```bash
-   npm publish
-   ```
-6. **Updates** — Bump `"version"` in `package.json` (or run `npm version patch`), then `npm publish` again.
-
-After publish, others can run `npm i -g maxyy`. The `LICENSE` and files listed under `"files"` in `package.json` are included; `README.md` is published automatically.
-
 ---
 
 ## Quick Start
