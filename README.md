@@ -8,17 +8,6 @@ Your personal AI that lives on your Mac. Runs as a voice assistant in the termin
 
 Developed and designed by [Gokulakrishnan](https://gokulakrishnan.dev).
 
-**Documentation**
-
-| Where | URL / how |
-|-------|-----------|
-| **npm** | [`maxyy` on npm](https://www.npmjs.com/package/maxyy) — `npm i -g maxyy` (package name is two **y**s, not `maxxy`). |
-| **GitHub Pages** | [gokulakrishnanxn.github.io/maxy](https://gokulakrishnanxn.github.io/maxy/) — deploys from `docs/` on push to `main` (workflow in `.github/workflows/pages.yml`). In the repo: **Settings → Pages → Source: GitHub Actions**. |
-| **Netlify** | Connect [the repo](https://github.com/Gokulakrishnanxn/maxy) in Netlify (**Add new site → Import from Git**). `netlify.toml` sets `publish = "docs"` and a no-op build. Each push to `main` redeploys. |
-| **Local** | Open [`docs/index.html`](docs/index.html) or run `npx serve docs`. |
-
-**GitHub link preview:** The image above is [`assets/github-social-preview.png`](assets/github-social-preview.png) (1280×640). Set **Settings → General → Social preview → Edit** and upload that file so link cards match. Favicon-sized icon: [`assets/logo.svg`](assets/logo.svg) · [`docs/favicon.svg`](docs/favicon.svg). Editable source: [`assets/github-social-preview.svg`](assets/github-social-preview.svg).
-
 ---
 
 ## Install
